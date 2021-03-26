@@ -25,3 +25,5 @@ jobs:
     - name: Manual Merge
       run: |
         git status
+        git checkout mainline
+        git merge --ff-only --no-edit develop
