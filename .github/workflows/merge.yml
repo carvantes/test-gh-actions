@@ -24,6 +24,10 @@ jobs:
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Manual Merge
       run: |
-        git status
         git checkout main
+        echo
+        echo "  'Nightly Merge Action' is trying to merge the 'develop' branch ($(git log -1 --pretty=%H develop))"
+        echo "  into the 'main' branch ($(git log -1 --pretty=%H main))"
+        echo
         git merge --ff-only --no-edit develop
+        git push origin main
